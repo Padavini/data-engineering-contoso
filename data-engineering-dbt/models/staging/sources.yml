@@ -1,0 +1,76 @@
+version: 2
+
+sources:
+  - name: contoso
+    database: ContosoRetailDW
+    schema: dbo
+    description: "Tabelas originais do ContosoRetailDW"
+
+    tables:
+      - name: FactSales
+        description: "Fato de vendas — 1 linha por item vendido"
+        columns:
+          - name: SalesKey
+            description: "Chave única da venda"
+            tests:
+              - unique
+              - not_null
+          - name: DateKey
+            tests: [not_null]
+          - name: StoreKey
+            tests: [not_null]
+          - name: ProductKey
+            tests: [not_null]
+          - name: SalesQuantity
+            tests: [not_null]
+          - name: SalesAmount
+            tests: [not_null]
+
+      - name: DimProduct
+        description: "Dimensão de produtos"
+        columns:
+          - name: ProductKey
+            tests: [unique, not_null]
+
+      - name: DimProductSubcategory
+        columns:
+          - name: ProductSubcategoryKey
+            tests: [unique, not_null]
+
+      - name: DimProductCategory
+        columns:
+          - name: ProductCategoryKey
+            tests: [unique, not_null]
+
+      - name: DimStore
+        description: "Dimensão de lojas"
+        columns:
+          - name: StoreKey
+            tests: [unique, not_null]
+
+      - name: DimGeography
+        columns:
+          - name: GeographyKey
+            tests: [unique, not_null]
+
+      - name: DimDate
+        description: "Dimensão de datas"
+        columns:
+          - name: DateKey
+            tests: [unique, not_null]
+
+      - name: DimChannel
+        description: "Dimensão de canais de venda"
+        columns:
+          - name: ChannelKey
+            tests: [unique, not_null]
+          - name: ChannelName
+            tests: [not_null]
+
+        name: DimChannel
+        description: "Dimensão de canais de venda"
+        columns:
+          - name: ChannelKey
+            tests: [unique, not_null]
+          - name: ChannelName
+            tests: [not_null]

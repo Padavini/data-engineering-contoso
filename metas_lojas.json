@@ -1,0 +1,22 @@
+[
+  {
+    "StoreType": "Online",
+    "MetaMensal": 500000,
+    "Regiao": "Brasil"
+  },
+  {
+    "StoreType": "Store",
+    "MetaMensal": 300000,
+    "Regiao": "Sudeste"
+  },
+  {
+    "StoreType": "Reseller",
+    "MetaMensal": 200000,
+    "Regiao": "Sul"
+  },
+  {
+    "StoreType": "Catalog",
+    "MetaMensal": 150000,
+    "Regiao": "Nordeste"
+  }
+]

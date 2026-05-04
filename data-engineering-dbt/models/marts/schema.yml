@@ -1,0 +1,46 @@
+version: 2
+
+models:
+
+  - name: mart_vendas_mensais
+    description: "Vendas agregadas por mês com métricas de performance"
+    columns:
+      - name: ano
+        tests: [not_null]
+      - name: numero_mes
+        tests: [not_null]
+      - name: receita_total
+        tests: [not_null]
+      - name: lucro_total
+        tests: [not_null]
+
+  - name: mart_vendas_por_categoria
+    description: "Vendas por categoria e subcategoria de produto, por ano e trimestre"
+    columns:
+      - name: ano
+        tests: [not_null]
+      - name: categoria
+        tests: [not_null]
+
+  - name: mart_vendas_por_canal
+    description: "Vendas por canal de venda (Online, Store, Reseller...) por ano e trimestre"
+    columns:
+      - name: nome_canal
+        tests: [not_null]
+      - name: ano
+        tests: [not_null]
+      - name: receita_total
+        tests: [not_null]
+
+  - name: mart_performance_lojas
+    description: "Performance consolidada por loja com ranking e segmentação"
+    columns:
+      - name: loja_key
+        tests: [unique, not_null]
+      - name: nome_loja
+        tests: [not_null]
+      - name: segmento
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Platinum', 'Gold', 'Silver', 'Bronze']

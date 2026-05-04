@@ -1,0 +1,14 @@
+airflow/logs/
+*.log
+__pycache__/
+*.pyc
+.env
+.venv/
+
+data-engineering-dbt/target/
+data-engineering-dbt/dbt_packages/
+data-engineering-dbt/logs/
+
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
